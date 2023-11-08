@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="news_section layout_padding">
+     <div class="container">
+        <h1 class="news_taital">News</h1>
+        <p class="news_text">What we are up to?</p>
+        <div class="news_section_2 layout_padding">
+           <div class="row">
+               {% for new in news %}
+                  <div class="col-sm-4">
+                     <div class="box_main_1">
+                        <div class="zoomout frame"><img src="{{ new.get_image }}"></div>
+                        <div class="padding_15">
+                           <h2 class="speed_text">{{ new.title }}</h2>
+                           <div class="post_text">Post by : CyclingGuru <span style="float: right;">{{ new.created }}</span></div>
+                           <p class="long_text">{{ new.text }} </p>
+                        </div>
+                     </div>
+                  </div>
+               {% endfor %}
+           </div>
+        </div>
+     </div>
+  </div>

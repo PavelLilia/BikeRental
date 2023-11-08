@@ -1,0 +1,62 @@
+{% load static %}
+
+<!-- contact section start -->
+<div class="contact_section layout_padding">
+     <div class="container">
+        <div class="contact_main">
+            {% if Name %}:
+                <h1 class="request_text">Thank you, {{ Name }}!</h1>
+            {% else %}:
+                <h1 class="request_text">Get a Quote</h1>
+            {% endif %}
+           <form id="contact_form" action="{% url 'index' %}#contact_form" method="POST">
+               {% csrf_token %}
+               {% if Name %}:
+                    <h3 class="call_text">We will contact you shortly... Stay cool)</h3>
+               {% else %}:
+                  <div class="form-group">
+                     <input type="text" class="email-bt" placeholder="Your name" name="Name">
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="email-bt" placeholder="Your email" name="Email">
+                  </div>
+                  <div class="form-group">
+                     <textarea class="massage-bt" placeholder="Write us a message here. We will be back to you soon!" rows="5" name="Message"></textarea>
+                  </div>
+               {% endif %}
+           </form>
+            {% if not Name %}:
+                <div class="send_btn"><a href="javascript:document.getElementById('contact_form').submit()">SEND</a></div>
+            {% endif %}
+        </div>
+     </div>
+</div>
+<!-- contact section end -->
+
+<!-- footer section start -->
+<div class="footer_section layout_padding">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-lg-8 col-sm-12 padding_0">
+              <div class="map_main">
+                 <div class="map-responsive">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1595.3335135485759!2d30.71294211238615!3d36.89831316345538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c38557ee0a740b%3A0x95d581106ba4e96d!2sEtiler%2C%20839.%20Sk.%20No%3A9%2C%2007010%20Muratpa%C5%9Fa%2FAntalya!5e0!3m2!1str!2str!4v1699257621826!5m2!1str!2str" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-sm-12">
+              <div class="call_text"><a href="#"><img src="{% static 'rental/images/map-icon.png' %}"><span class="padding_left_0">Page when looking at its layou</span></a></div>
+              <div class="call_text"><a href="#"><img src="{% static 'rental/images/call-icon.png' %}"><span class="padding_left_0">Call Now  +01 123467890</span></a></div>
+              <div class="call_text"><a href="#"><img src="{% static 'rental/images/mail-icon.png' %}"><span class="padding_left_0">demo@gmail.com</span></a></div>
+              <div class="social_icon">
+                 <ul>
+                    <li><a href="https://t.me/antalyabikerentals"><img src="{% static 'rental/images/telegram-icon.png' %}"></a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=905421160723&text=Get%20best%20rental%20bikes%20in%20Antalya"><img src="{% static 'rental/images/whatsapp-icon.png' %}"></a></li>
+                    <li><a href="https://instagram.com/antalya.bike.rentals?utm_source=qr&igshid=N3Q0eXBmaDk5Njk3"><img src="{% static 'rental/images/instagram-icon.png' %}"></a></li>
+                 </ul>
+              </div>
+           </div>
+        </div>
+     </div>
+</div>
+<!-- footer section end -->
